@@ -16,6 +16,10 @@
   background-color: rgb(106, 150, 106);
 }
 
+.task-card.--done .task-title {
+  text-decoration: line-through;
+}
+
 .task-card:hover {
   cursor: pointer;
   transform: scale(1.05);

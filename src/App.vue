@@ -51,6 +51,21 @@ export default {
     onHandleStatusChange({ index, status }) {
       Object.assign(this.tasks[index], { status })
     }
+  },
+
+  watch: {
+    tasks: {
+      deep: true,
+      handler() {
+        localStorage.setItem('tasks', JSON.stringify(this.tasks))
+      }
+    }
+  },
+
+  created() {
+    const data = localStorage.getItem('tasks')
+    const array = JSON.parse(data)
+    this.tasks = Array.isArray(array) ? array : []
   }
 }
 </script>
