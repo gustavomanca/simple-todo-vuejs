@@ -1,0 +1,70 @@
+.task-card {
+  align-items: center;
+  background-color: rebeccapurple;
+  border-radius: 0.4rem;
+  color: #f9f9f9;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  height: 6.4rem;
+  justify-content: center;
+  position: relative;
+  width: 14.4rem;
+}
+
+.task-card.--done {
+  background-color: rgb(106, 150, 106);
+}
+
+.task-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.clear-task {
+  background-color: #441e6a;
+  border: none;
+  border-radius: 50%;
+  height: 1.2rem;
+  outline: none;
+  position: absolute;
+  right: 0.4rem;
+  top: 0.4rem;
+  transition: background-color 0.3s ease transform 0.4s ease;
+  width: 1.2rem;
+  will-change: background-color, transform;
+}
+
+.clear-task:hover {
+  background-color: #381859;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.clear-task:hover::before {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1.1);
+}
+.clear-task:hover::after {
+  transform: translate(-50%, -50%) rotate(-45deg) scale(1.1);
+}
+
+.clear-task::before,
+.clear-task::after {
+  background-color: #f9f9f9;
+  content: '';
+  height: 0.1rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 0.6rem;
+}
+
+.clear-task::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.clear-task::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}

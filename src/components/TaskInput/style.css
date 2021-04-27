@@ -1,0 +1,55 @@
+.task-input {
+  border: 1px solid #f9f9f9;
+  border-radius: 0.4rem;
+  display: flex;
+  height: 2rem;
+  margin: 0 0 2.4rem;
+  overflow: hidden;
+  width: 14.4rem;
+}
+
+.task-input > input {
+  background-color: transparent;
+  border: none;
+  color: #f9f9f9;
+  height: 100%;
+  outline: none;
+  padding: 0rem 0.8rem;
+  width: 100%;
+}
+
+.add-task {
+  background-color: #29299e;
+  border: none;
+  border-left: 1px solid #f9f9f9;
+  outline: none;
+  height: 100%;
+  position: relative;
+  transition: background-color 0.3s ease;
+  width: 2.4rem;
+  will-change: background-color;
+}
+
+.add-task:hover {
+  background-color: #1c1c80;
+  cursor: pointer;
+}
+
+.add-task::before,
+.add-task::after {
+  background-color: #f9f9f9;
+  content: '';
+  height: 0.1rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 0.8rem;
+}
+
+.add-task::before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.add-task::after {
+  transform: translate(-50%, -50%);
+}

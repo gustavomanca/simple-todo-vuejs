@@ -1,0 +1,35 @@
+.progress-bar {
+  margin: 0 0 2.4rem;
+  width: 100%;
+}
+
+.bar-wrapper {
+  align-items: center;
+  border: 1px solid #f9f9f9;
+  border-radius: 0.4rem;
+  display: flex;
+  height: 1.6rem;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: lighter;
+}
+
+.value {
+  font-size: 1.2rem;
+  font-weight: lighter;
+  z-index: 1;
+}
+
+.status {
+  background-color: #056a05;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}

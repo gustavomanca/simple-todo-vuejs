@@ -1,28 +1,60 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <progress-bar :percentage="percentageOfDoneTasks" />
+    <task-input @add="onCreateTask" />
+    <tasks-grid
+      :tasks="tasks"
+      @delete="onDeleteTask"
+      @status-change="onHandleStatusChange"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ProgressBar from '@/components/ProgressBar'
+import TaskInput from '@/components/TaskInput'
+import TasksGrid from '@/components/TasksGrid'
 
 export default {
   name: 'App',
+
   components: {
-    HelloWorld
+    ProgressBar,
+    TaskInput,
+    TasksGrid
+  },
+
+  data: () => ({
+    tasks: []
+  }),
+
+  computed: {
+    percentageOfDoneTasks() {
+      if (!this.tasks.length) return 0
+
+      const total = this.tasks.length
+      const doneTasks = this.tasks.filter(({ status }) => status).length
+      const percentage = Math.floor((doneTasks / total) * 100)
+      return percentage
+    }
+  },
+
+  methods: {
+    onCreateTask(title) {
+      this.tasks.push({ title, status: false })
+    },
+
+    onDeleteTask(index) {
+      this.tasks.splice(index, 1)
+    },
+
+    onHandleStatusChange({ index, status }) {
+      Object.assign(this.tasks[index], { status })
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import './global.css';
 </style>
